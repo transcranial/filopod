@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load extra_filters %}
+
+{% block title %}Filopod - Resource Collections{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-about.css" />
+{% endblock %}
+
+{% block body %}
+<div class="about-header container">
+Resource Collections
+</div>
+<div class="about-main container">
+    {% for respack in respacksList %}
+        {% ifequal forloop.counter0|modulo:3 0 %}
+            <div class="row">
+        {% endifequal %}
+            <div class="col-md-4 respack-panel">
+                <div class="logo"><img src="{{ STATIC_URL }}images/journals/{{ respack.logofile }}"></div>
+                <div class="content">
+                <i>{{ respack.name }}</i><br><br>
+                # of resources: {{ respack.resNum }}<br>
+                # of paragraphs/figures: {{ respack.subresNum }}<br>
+                oldest resource: {{ respack.resOldest }}<br>
+                newest resource: {{ respack.resNewest }}<br><br>
+                {{ respack.resInfo }}<br>
+                </div>
+            </div>
+        {% if forloop.last %}
+            </div>
+        {% else %}
+            {% ifequal forloop.counter0|modulo:3 2 %}
+                </div>
+            {% endifequal %}
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

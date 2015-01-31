@@ -1,0 +1,106 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Filopod - Help{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-about.css" />
+{% endblock %}
+
+{% block body %}
+    <div id="intro">
+        <div class="container">
+        <h1>Filopod is a better way to learn.</h1>
+        <p>We use natural language processing algorithms to figure out the most relevant concepts for a given topic. Those concepts then form links which are used to extract the most relevant snippets from the selected resource collections. Snippets are linked by two anchor concepts, so there's better retention through associative learning.</p>
+        <h2><a class="btn btn-info btn-lg" role="button" href="/">Start exploring</a>&nbsp;&nbsp;or scroll down for walk-through guide.</h2>
+        </div>
+    </div>
+<div class="about-header container">
+Walk-through guide (scroll down)
+</div>
+<div class="about-main">
+    <div id="screenshots" class="container">
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-1" src="{{ STATIC_URL }}images/about-help-screenshot1.jpg" /></div></div>
+            <div class="col-md-6"><div class="screenshot-caption">Enter a concept in the search bar.</div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-caption">Before searching, you can select or un-select resource collections. Resource collections are journal articles that are grouped together. When you search for concepts, the program only searches within the selected resource collections.</div></div>
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-2" src="{{ STATIC_URL }}images/about-help-screenshot2.jpg" /></div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-3" src="{{ STATIC_URL }}images/about-help-screenshot3.jpg" /></div></div>
+            <div class="col-md-6"><div class="screenshot-caption">Disambiguation may be required if you enter a more general concept such as "stroke".</div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-caption">When you select your intended concept, it will be represented as the "source concept".</div></div>
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-4" src="{{ STATIC_URL }}images/about-help-screenshot4.jpg" /></div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-5" src="{{ STATIC_URL }}images/about-help-screenshot5.jpg" /></div></div>
+            <div class="col-md-6"><div class="screenshot-caption">You can hover over "terms contained" to see the various terms contained within a concept.</div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-caption">Rows will then be populated by "target concepts", which are other concepts that are found to be strongly associated with the source concept. You can also turn any target concept into a source concept to explorer further.</div></div>
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-6" src="{{ STATIC_URL }}images/about-help-screenshot6.jpg" /></div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-7" src="{{ STATIC_URL }}images/about-help-screenshot7.jpg" /></div></div>
+            <div class="col-md-6"><div class="screenshot-caption">Each target concept will produce snippets, which are also ranked according to a relevancy score. These snippets are the "links" between the source concept and a target concept.</div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-caption">Hover over "snippet details" to see the source of the snippet.</div></div>
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-8" src="{{ STATIC_URL }}images/about-help-screenshot8.jpg" /></div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-9" src="{{ STATIC_URL }}images/about-help-screenshot9.jpg" /></div></div>
+            <div class="col-md-6"><div class="screenshot-caption">Clicking on "expand to paragraph" will bring up the paragraph context the snippet was taken from.</div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-caption">At the bottom of each snippet panel are links to the pubmed citation as will as a direct link to the article itself.</div></div>
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-10" src="{{ STATIC_URL }}images/about-help-screenshot10.jpg" /></div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-11" src="{{ STATIC_URL }}images/about-help-screenshot11.jpg" /></div></div>
+            <div class="col-md-6"><div class="screenshot-caption">Use the arrows to navigate through the snippets.</div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-caption">Some snippets will have figures or images associated with them. Click on the icon to open them.</div></div>
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-12" src="{{ STATIC_URL }}images/about-help-screenshot12.jpg" /></div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-13" src="{{ STATIC_URL }}images/about-help-screenshot13.jpg" /></div></div>
+            <div class="col-md-6"><div class="screenshot-caption">You will notice that not all snippets are loaded in the beginning. For additional target concepts beyond the first, you must click to load the snippets.</div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><div class="screenshot-caption">In the options panel, you can set the maximum number of nodes (target concepts), the concept types to be displayed, as well as the method for calculating association measures. Clicking the update button will recalculate the ranked list of target concepts based on the selected options.</div></div>
+            <div class="col-md-6"><div class="screenshot-img"><img id="screenshot-img-14" src="{{ STATIC_URL }}images/about-help-screenshot14.jpg" /></div></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    $('.screenshot-img img').each(function(i) {
+        if (i % 2 == 0) {
+            $(this).css({'transform': 'translateX(' + (0 - $(this).offset().top + $(window).height()/2) + 'px)'});
+        } else {
+            $(this).css({'transform': 'translateX(' + ($(this).offset().top - $(window).height()/2) + 'px)'});
+        }
+    });
+    $(window).scroll(function() {
+        $('.screenshot-img img').each(function(i) {
+            if ($(this).offset().top - $(window).scrollTop() < $(window).height()) {
+                if (i % 2 == 0) {
+                    $(this).css({'transform': 'translateX(' + Math.min(0, ($(window).scrollTop() - $(this).offset().top + $(window).height()/2)) + 'px)'});
+                } else {
+                    $(this).css({'transform': 'translateX(' + Math.max(0, ($(this).offset().top - $(window).scrollTop() - $(window).height()/2)) + 'px)'});
+                }
+            }
+        });
+    
+    });
+});
+</script>
+{% endblock %}

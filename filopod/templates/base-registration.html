@@ -1,0 +1,33 @@
+{% load analytical %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% analytical_head_top %}
+	<meta charset="UTF-8" />
+	<title>{% block title %}{% endblock %}</title>
+<link rel="icon" href="{{ STATIC_URL }}images/favicon.ico" />
+<script src="http://use.edgefonts.net/arvo.js"></script>
+<script src="http://use.edgefonts.net/muli.js"></script>
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-registration.css">
+{% block header %}{% endblock %}
+{% analytical_head_bottom %}
+</head>
+<body>
+{% analytical_body_top %}
+
+<div id="main_panel">
+	<div id="main_contents">
+		<div id="logo">
+			<img src="{{ STATIC_URL }}images/logo-full.png" />
+		</div>	
+		{% block content %}{% endblock %}
+	</div>
+</div>
+
+<footer>
+	<div id="copyright">copyright &#169; 2013 Filopod, LLC, all rights reserved</div>
+</footer>
+
+{% analytical_body_bottom %}
+</body>
+</html>

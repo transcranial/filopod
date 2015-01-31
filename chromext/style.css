@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'JuraDemiBold';
+    src: url('Jura-DemiBold-webfont.svg#JuraDemiBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EconomicaRegular';
+    src: url('Economica-Regular-OTF-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#logo {
+	padding: 30px 0 10px 0;
+	text-align: center;
+}
+#logo-image {
+	vertical-align: middle;
+}
+#logo-text {
+	vertical-align: middle;
+	font: normal 26px "JuraDemiBold";
+	text-shadow: 1px 2px 3px #799AA5;
+	color: #799AA5;
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none; 
+	cursor: default;
+}
+
+body {
+	font: normal 16px "EconomicaRegular", "Verdana", sans-serif;
+	text-align: center;
+	color: #2B4E69;
+	background: #FFFFFF;
+	margin: 0;
+	width: 200px;
+}
+
+.cssbutton {
+	color: #2B4E69;
+	padding: 10px 10px 10px 10px;
+	margin: 5px 0;
+	background: #FFFFFF;
+	-webkit-transition-property: padding, background-color;
+	-webkit-transition-duration: 1s;
+}
+.cssbutton:hover {
+	background: #2B4E69;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 10px 10px 10px 30px;
+	-webkit-transition-property: padding, background-color;
+	-webkit-transition-duration: 1s;
+}
+
+#domain_select {
+	font: normal 12px sans-serif;
+	color: #799AA5;	
+    background-color: #FFFFFF;
+	padding: 30px 0 0 0;
+}
+#domain_select select {
+	font: normal 12px sans-serif;
+	color: #799AA5;	
+    border: 1px solid #799AA5;
+}
+#domain_select select:focus {
+	outline: none;
+}
+#add {
+}
+
+#status {
+	position: absolute;
+	text-align: center;
+	width: 200px;
+	top: 0;
+	left: 0;
+}

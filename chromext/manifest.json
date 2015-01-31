@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Filopod Extension",
+  "version": "0.1",
+  "description": "Filopod is contextual knowledge for your articles. Add articles to your Filopod library with the Chrome extension.",
+  "browser_action": {
+    "default_icon": {                
+      "19": "icon19.png",     
+      "38": "icon38.png"         
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": { "16": "icon16.png",
+             "48": "icon48.png",
+             "128": "icon128.png" },
+  "permissions": ["tabs", "cookies", "http://*/*", "https://*/*"]
+}

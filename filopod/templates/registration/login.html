@@ -1,0 +1,23 @@
+{% extends "base-registration.html" %}
+
+{% block title %}Sign in{% endblock %}
+
+{% block header %}
+{% endblock %}
+	
+{% block content %}<h2>Log in</h2>
+<div id="panel">
+
+	<form method="post">{% csrf_token %}
+		<span class="form_label">{{ form.username.label_tag }}&nbsp;</span><span class="form_errors">{{ form.username.errors|striptags }}</span><br>{{ form.username }}<br>
+		<span class="form_label">{{ form.password.label_tag }}&nbsp;</span><span class="form_errors">{{ form.password.errors|striptags }}</span><br>{{ form.password }}<br>
+		<input type="submit" value="Sign in" id="submitbutton">
+		<span id="login-persist">
+            <input type="checkbox" name="PersistentCookie" id="PersistentCookie" value="yes" class="css-checkbox" checked="checked">
+            <label for="PersistentCookie" id="PersistentCookie-label" class="css-label">stay logged in</label>
+        </span>
+	</form><br>
+	<span id="login-trouble"><a href="/accounts/password/reset/" id="troubleshoot">I'm having trouble signing in.</a></span>
+</div>
+<p>New? <a href="/about?p=help">Learn more</a> about us or <a href="/accounts/register/" class="registerbutton">Create an account</a></p>
+{% endblock %}

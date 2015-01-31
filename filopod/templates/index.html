@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Filopod - contextual knowledge{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-filopod.css" />
+{% endblock %}
+
+{% block body %}
+<div id="main">
+    <div class="container">
+        <h3>Extract the most <span style="color:#74bbc8;">relevant snippets</span> from full-text articles using contextual mapping. <a href="/about?p=help">Learn more.</a></h3>
+        <div id="searchbox" class="input-group input-group-lg">
+            <span class="input-group-addon">//domain/biomedical</span>
+            <input type="text" class="form-control" placeholder="Search for concept (ex: stroke)">
+            <span class="input-group-btn">
+                <button class="btn btn-info" type="button"><i class="glyphicon glyphicon-search"></i> Go!</button>
+            </span>
+        </div><br>
+        <div id="respacks" class="panel panel-default" code="{{ respacks.default }}">
+            <h4>Click to select or un-select <a href="/about?p=respacks">resource collections</a></h4>
+            {% for name in respacks.names %}
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-ok"></span> {{ name }}</button>
+            {% endfor %}
+        </div>
+    </div>
+</div> <!--main-->
+<center>
+<div id="search_selection" style="display:none;">
+    <div id="search_selection_spinner" style="display:none;"><img src="{{ STATIC_URL }}images/ajax-loader.gif" /></div>
+    <div id="search_selection_content"></div>
+</div> <!--search_selection-->
+<div id="concept_nodes" style="display:none;">    
+    <div id="concept_nodes_heading"></div>
+    <div id="concept_nodes_spinner" style="display:none;"><img src="{{ STATIC_URL }}images/ajax-loader.gif" /></div>
+    <div id="options_button" style="display:none;"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-cog"></span> Options</button></div>
+    <div id="options_panel" style="display:none;">
+        <div id="node_number" class="btn-group options" code="{{ number_nodes.default }}">
+            <button id="node_number_selected" type="button" class="btn btn-default options-selected" disabled="disabled">{{ number_nodes.default }}</button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                max # of concept nodes <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                {% for number in number_nodes.n %}
+                <li code="{{ number }}">{{ number }}</li>
+                {% endfor %}
+            </ul>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;<!--node_number-->
+        <div id="category_filter" class="btn-group options" code="{{ concept_types.default }}">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                filter concepts by category <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-form pull-right" role="menu">
+                {% for type in concept_types.types %}
+                <li class="text-left"><input type="checkbox" name="checkboxG-{{ type.code }}" id="checkboxG-{{ type.code }}" class="css-checkbox" code="{{ type.code }}"><label for="checkboxG-{{ type.code }}" class="css-label">{{ type.name|lower }}</label></li>
+                {% endfor %}
+            </ul>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;<!--category_filter-->
+        <div id="assoc_measure" class="btn-group options" code="{{ assoc_measures.default.code }}">
+            <button id="assoc_measure_selected" type="button" class="btn btn-default options-selected" disabled="disabled">{{ assoc_measures.default.name }}</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    association measure <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    {% for measure in assoc_measures.measures %}
+                    <li class="text-right" code="{{ measure.code }}">{{ measure.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <a class="btn btn-info" href="/about?p=techstuff">?</a>
+        </div><br><!--assoc_measure-->
+        <div id="options_update"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-repeat"></span> Update</button></div>
+    </div> <!--options_panel-->
+    <div id="concept_nodes_content"></div>
+</div> <!--concept_nodes-->
+</center>
+
+<div id="floating-menu">
+<a href="/about?p=help"><img src="{{ STATIC_URL }}images/questionmark.png"></a>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/filopod.js"></script>
+<script>
+$(document).ready(function() {
+    images_path = "{{ STATIC_URL }}images/";
+    concept_images_path = "{{ STATIC_URL }}images/concepts/";
+});
+</script>
+{% endblock %}

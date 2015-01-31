@@ -1,0 +1,124 @@
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+/*************************************/
+/* Body */
+
+body {
+	background: #FFFFFF;
+	width: 100%;
+	margin: 0;
+}
+
+
+/*************************************/
+#logo {
+	padding: 10px 0;
+	border-bottom: 3px solid #74bbc8;
+}
+
+/*************************************/
+/* Main Contents */
+#main_panel {
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #6f8088;
+	text-align: center;
+}
+#main_contents {
+	padding-top: 10px;
+	position: relative;
+	top: 0;
+	text-align: center;
+}
+#main_contents h2 {
+	font: normal 1.4em arvo, muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #74bbc8;
+    margin: 40px 0;
+}
+#main_contents p {
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #555;
+    margin: 40px 0;
+}
+#main_contents a {
+	color: #6f8088;
+}
+#main_contents a:hover {
+	color: #74bbc8;
+}
+
+.form_label {
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #6f8088;
+}
+.form_errors {
+	text-align: left;
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #CF7575;
+}
+#panel {
+    width: 300px;
+    margin: 0 auto;
+}
+#panel form {
+	text-align: left;
+}
+#panel input[type='text'], #panel input[type='password'] {
+    width: 100%;
+	padding: 2px 8px;
+	border: 1px solid #74bbc8;
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #555;
+	margin: 0 0 20px 0;
+    -webkit-transition: 0.25s linear;
+    transition: 0.25s linear;
+}
+#panel input[type='text']:focus, #panel input[type='password']:focus {
+	outline: none;
+	border-left: 5px solid #74bbc8;
+}
+#panel input[type='checkbox'] + label {
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #6f8088;
+}
+#tos, #login-persist, #login-trouble {
+	font: normal 0.85em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#submitbutton {
+    color: #ffffff;
+	background-color:#74bbc8;
+    border: none;
+    outline: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transition: 0.25s linear;
+    transition: 0.25s linear;
+	margin: 10px 10px 0 0;
+    cursor: pointer;
+    padding: 15px;
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#submitbutton:hover,
+#submitbutton:focus,
+#submitbutton:active {
+  border: none;
+  color: #ffffff;
+  background-color: #83d3e2;
+}
+#submitbutton:active {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #50818b;
+}
+
+/*************************************/
+/* Footer */
+footer {
+	font: normal 0.85em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #999999;
+	padding: 0 0 0 30px;
+	position: absolute;
+	bottom: 20px;
+}

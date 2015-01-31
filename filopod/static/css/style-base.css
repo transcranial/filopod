@@ -1,0 +1,117 @@
+/*!
+ * Copyright (c) 2013 Filopod, LLC
+ *
+ * http://www.filopod.com
+ */
+ 
+/*************************************/
+html {
+	-webkit-font-smoothing: antialiased;
+    overflow-y: scroll;
+}
+
+html, body {height: 100%;}
+
+body {
+	background: #FFFFFF;
+	width: 100%;
+	/*min-width: 1024px;*/
+	margin: 0;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -150px;
+    /* Pad bottom by footer height */
+    padding: 0 0 150px;
+}
+
+/*************************************/
+/* Header*/
+header {
+    min-height: 100px;
+	width: 100%;
+	padding: 40px 10px 0 10px;
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #373D42;
+}
+.navbar {
+    margin: 0;
+}
+#logo {
+	float: left;
+    margin: 0 0 10px 0;
+	vertical-align: middle;
+}
+header a {
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #888;
+	text-decoration: none;
+}
+header a:hover {
+	color: #74bbc8;
+}
+header .login-section {
+	padding-top: 16px;
+}
+#user_welcome_msg {
+	font: normal 0.85em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top: 18px;
+    color: #bbb;
+}
+
+.tooltip-inner {
+    color: #fff;
+    background-color: rgba(116, 187, 200, 0.8);
+	font: normal 0.9em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: rgba(116, 187, 200, 0.8);
+}
+.tooltip.right .tooltip-arrow {
+    border-right-color: rgba(116, 187, 200, 0.8);
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: rgba(116, 187, 200, 0.8);
+}
+.tooltip.left .tooltip-arrow {
+    border-left-color: rgba(116, 187, 200, 0.8);
+}
+
+/*************************************/
+/* Footer */
+footer {
+    min-height: 150px;
+	width: 100%;
+	font: normal 0.9em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #ccc;
+	background: #373D42;
+	text-align: left;
+    padding: 0 50px;
+}
+footer a {
+	color: #ccc;
+}
+footer a:hover {
+	color: #74bbc8;
+	text-decoration: none;
+}
+.footer_links_heading {
+	font: normal 1em arvo, Georgia, Garamond, serif;
+    padding: 25px 0 5px 0;
+}
+#copyright {
+    padding: 25px 10px 10px 0;
+	text-align: right;
+}
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}

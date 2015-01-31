@@ -1,0 +1,60 @@
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+/*************************************/
+/* Body */
+
+body {
+	background: #FFFFFF;
+	width: 100%;
+	margin: 0;
+}
+
+
+/*************************************/
+#logo {
+	padding: 10px 0;
+	border-bottom: 3px solid #aaa;
+}
+
+/*************************************/
+/* Main Contents */
+#main_panel {
+	height: 700px;
+	font: normal 1em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #6f8088;
+	text-align: center;
+}
+#main_contents {
+	padding-top: 10px;
+	position: relative;
+	top: 0;
+}
+#main_contents h2 {
+	font: normal 1.4em arvo, muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #74bbc8;
+}
+#main_contents a {
+	color: #6f8088;
+}
+#main_contents a:hover {
+	color: #74bbc8;
+}
+
+#doc_contents {
+	height: 500px;
+	overflow: auto;
+	text-align: left;
+	padding: 10px 50px 0 100px;
+}
+
+/*************************************/
+/* Footer */
+footer {
+	font: normal 0.85em muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #999999;
+	padding: 0 0 0 30px;
+	position: absolute;
+	bottom: 20px;
+}

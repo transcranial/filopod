@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Filopod - Technical Stuff{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-about.css" />
+{% endblock %}
+
+{% block body %}
+<div class="about-header container">
+Technical Stuff
+</div>
+<div class="about-main container">
+    <center>
+    <h3>Association Measures</h3>
+    <p>Given a concept, the goal is to extract concept links most associated with the source concept. We do this by analyzing the statistical distribution properties across all concepts, and ranking the concepts through an association measure. There are many association measures one can use, all having different properties with different behaviors in different situations. Here, we use different association measures based on distributional frequencies. There are other measures one can use based on comparing the context of words surrounding the occurrence of two concepts. However, we have not included these at this time due to their computational cost.</p>
+    <p>The moving text window for measuring association can be set to any length, and here we use sentences as boundaries for this window. The table below represents a contingency table representing observed co-occurrence frequencies within a certain text window for concepts <span lang="latex">x</span> and <span lang="latex">y</span>.</p>
+    <p><span lang="latex">x</span> represents presence of the concept and <span lang="latex">\lnot{x}</span> represents the absence of the concept.</p>
+    <p>
+        <table>
+            <tr>
+                <td lang="latex">N</td>
+                <td lang="latex">f(y)</td>
+                <td lang="latex">f(\lnot{y})</td>
+            </tr>
+            <tr>
+                <td lang="latex">f(x)</td>
+                <td lang="latex">f(x, y)=a</td>
+                <td lang="latex">f(x, \lnot{y})=b</td>
+            </tr>
+            <tr>
+                <td lang="latex">f(\lnot{x})</td>
+                <td lang="latex">f(\lnot{x}, y)=c</td>
+                <td lang="latex">f(\lnot{x}, \lnot{y})=d</td>
+            </tr>
+        </table>
+    </p>
+    <ul>
+        <li>Conditional probability&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">P(y|x)=\frac{a}{a+b}</span></li>
+        <li>Mutual dependence&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\log{\frac{P(x,y)^2}{P(x)P(y)}}=\log{\frac{a^2}{(a+b)(a+c)}}</span></li>
+        <li>Normalized expectation&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{2P(x,y)}{P(x)+P(y)}=\frac{2a}{2a+b+c}</span></li>
+        <li>Mutual expectation&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{2P(x,y)}{P(x)P(y)}P(x,y)=\frac{2a}{2a+b+c}\left(\frac{a}{N}\right)</span></li>
+        <li>Pearson phi coefficient&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{ad-bc}{\sqrt{(a+b)(a+c)(b+d)(c+d)}}</span></li>
+        <li>Student t test&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{f(x,y)-\hat{f}(x,y)}{\sqrt{f(x,y)\left[1-\frac{f(x,y)}{N} \right]}}=\frac{a-\frac{(a+b)(a+c)}{N}}{\sqrt{a-\frac{a^{2}}{N}}}</span></li>
+        <li>Z score&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{f(x,y)-\hat{f}(x,y)}{\sqrt{\hat{f}(x,y)\left[1-\frac{\hat{f}(x,y)}{N} \right]}}=\frac{a-\frac{(a+b)(a+c)}{N}}{\sqrt{\frac{(a+b)(a+c)}{N}\left[1-\frac{(a+b)(a+c)}{N^{2}} \right]}}</span></li>
+        <li>Russel-Rao&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{a}{a+b+c+d}</span></li>
+        <li>Jaccard&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{a}{a+b+c}</span></li>
+        <li>First Kulczynsky&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{a}{b+c}</span></li>
+        <li>Second Sokal-Sneath&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{a}{a+2(b+c)}</span></li>
+        <li>Driver-Kroeber&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{a}{\sqrt{(a+b)(a+c)}}</span></li>
+        <li>Fager&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{a}{\sqrt{(a+b)(a+c)}}-\frac{1}{2}\max(b,c)</span></li>
+        <li>Baroni-Urbani&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{a+\sqrt{ad}}{a+b+c+\sqrt{ad}}</span></li>
+        <li>Michael&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">\frac{4(ad-bc)}{(a+d)^{2}+(b+c)^{2}}</span></li>
+        <li>Piatersky-Shapiro&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">P(x,y)-P(x)P(y)=\frac{a}{N}-\frac{(a+b)(a+c)}{N^2}</span></li>
+        <li>Poisson-Stirling&nbsp;&nbsp;&nbsp;&nbsp;<span lang="latex">a\left(\log{\frac{aN}{(a+b)(a+c)}}-1\right)</span></li>
+    </ul>
+    </center>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% load analytical %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% analytical_head_top %}
+<meta charset='utf-8'>
+<title>{% block title %}{% endblock %}</title>
+<meta content='Filopod lets you pull the most relevant information on specific topics from high-quality full-text biomedical articles, using the power of contextual relationships.' name='description'>
+<meta content='biomedical, biomedical articles, medicine, medical, medical articles, scholarly articles, journal articles, academic journals' name='keywords'>
+<meta content='Filopod, LLC' name='author'>
+<meta content='summary' name='twitter:card'>
+<meta content='@filopod' name='twitter:site'>
+<meta content='Filopod' name='twitter:title'>
+<meta content='Filopod lets you pull the most relevant information on specific topics from high-quality full-text biomedical articles, using the power of contextual relationships.' name='twitter:description'>
+<meta content='http://www.filopod.com' name='twitter:domain'>
+<link rel="icon" href="{{ STATIC_URL }}images/favicon.ico" />
+<script src="http://use.edgefonts.net/arvo.js"></script>
+<script src="http://use.edgefonts.net/muli.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link href="{{ STATIC_URL }}css/bootstrap-filopod.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-base.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery.mCustomScrollbar.css" />
+{% block styles %}{% endblock %}
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+
+<!--[if !IE 7]>
+	<style type="text/css">
+		#wrap {display:table;height:100%}
+	</style>
+<![endif]-->	
+{% analytical_head_bottom %}
+</head>
+
+<body>
+{% analytical_body_top %}
+
+<div id="wrap">
+<header>
+    <div class="container">
+        <div id="logo">
+            <a href="/"><img src="{{ STATIC_URL }}images/logo-full.png"></a>
+        </div>
+        {% if user.username %}
+        <div id="user_welcome_msg" class="navbar-right login-section">
+        {% if user.first_name %}
+            welcome, {{ user.first_name }}&nbsp;|&nbsp;<a href="/accounts/logout/">logout</a>
+        {% else %}
+            welcome, {{ user.email }}&nbsp;|&nbsp;<a href="/accounts/logout/">logout</a>
+        {% endif %}
+        </div>
+        {% else %}
+        <div class="navbar-right login-section"><a class="btn btn-info" href="/accounts/login/">Log in</a>&nbsp;&nbsp;<a href="/accounts/register/">Sign up</a></div>
+        {% endif %}
+    </div>
+</header>
+
+{% block body %}{% endblock %}
+
+</div> <!--wrap-->
+
+<footer>
+    <div class="container">
+        <div class="footer_links col-md-2">
+            <div class="footer_links_heading">About</div>
+            <a href="/about?p=help">help</a><br>
+            <a href="/about?p=respacks">resource collections</a><br>
+            <a href="/about?p=techstuff">technical stuff</a><br>
+            <a href="/about?p=team">our team</a><br>
+        </div>
+        <div class="footer_links col-md-2">
+            <div class="footer_links_heading">Legal</div>
+            <a href="/doc/publishers/">for publishers</a><br>
+            <a href="/doc/privacy/">privacy policy</a><br>
+            <a href="/doc/tos/">terms of service</a><br>
+        </div>
+        <div class="footer_links col-md-2">
+            <div class="footer_links_heading">Follow us</div>
+            <a href="http://www.facebook.com/filopod" target="_blank" onmouseover="getElementById('facebook').src='{{ STATIC_URL }}images/social/facebook2.png'" onmouseout="getElementById('facebook').src='{{ STATIC_URL }}images/social/facebook1.png'"><img id="facebook" src="{{ STATIC_URL }}images/social/facebook1.png"><img src="{{ STATIC_URL }}images/social/facebook2.png" style="display:none;"></a>
+            <a href="http://www.twitter.com/filopod" target="_blank" onmouseover="getElementById('twitter').src='{{ STATIC_URL }}images/social/twitter2.png'" onmouseout="getElementById('twitter').src='{{ STATIC_URL }}images/social/twitter1.png'"><img id="twitter" src="{{ STATIC_URL }}images/social/twitter1.png"><img src="{{ STATIC_URL }}images/social/twitter2.png" style="display:none;"></a>
+            <a href="http://plus.google.com/100138947073764987106" rel="publisher" target="_blank" onmouseover="getElementById('googleplus').src='{{ STATIC_URL }}images/social/googleplus2.png'" onmouseout="getElementById('googleplus').src='{{ STATIC_URL }}images/social/googleplus1.png'"><img id="googleplus" src="{{ STATIC_URL }}images/social/googleplus1.png"><img src="{{ STATIC_URL }}images/social/googleplus2.png" style="display:none;"></a>
+        </div>
+        <div id="copyright" class="col-md-6"><img src="{{ STATIC_URL }}images/graph_icon.png">copyright &#169; 2013 Filopod, LLC, all rights reserved</div>
+    </div>
+</footer>
+
+<!-- Google CDN jQuery with fallback to local -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"%3E%3C/script%3E'))</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC_URL }}js/jquery-ui-1.10.2.custom.min.js"%3E%3C/script%3E'))</script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.bpopup.min.js"></script>
+
+{% block scripts %}{% endblock %}
+
+{% analytical_body_bottom %}
+</body>
+</html>

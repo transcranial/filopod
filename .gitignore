@@ -1,0 +1,13 @@
+*.log
+*.pot
+*.pyc
+*.db
+*.pkl
+filopod/static/images/concepts/
+filopod/archived_11-23-2013/
+_design/
+.elasticbeanstalk/
+.ebextensions/
+filopod/settings.py
+filopod/static/images/alvin*
+filopod/static/images/leon*

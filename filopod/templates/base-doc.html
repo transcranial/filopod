@@ -1,0 +1,51 @@
+{% load analytical %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% analytical_head_top %}
+	<meta charset="UTF-8" />
+	<title>{% block title %}{% endblock %}</title>
+<link rel="icon" href="{{ STATIC_URL }}images/favicon.ico" />
+<script src="http://use.edgefonts.net/arvo.js"></script>
+<script src="http://use.edgefonts.net/muli.js"></script>
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-doc.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery.mCustomScrollbar.css" />
+{% analytical_head_bottom %}
+</head>
+<body>
+{% analytical_body_top %}
+
+<div id="main_panel">
+	<div id="main_contents">
+		<div id="logo">
+			<img src="{{ STATIC_URL }}images/logo-full.png" />
+		</div>	
+		<div id="doc_contents">
+		{% block content %}{% endblock %}
+		</div>
+	</div>
+</div>
+
+<footer>
+	<div id="copyright">copyright &#169; 2013 Filopod, LLC, all rights reserved</div>
+</footer>
+	
+<!-- Google CDN jQuery with fallback to local -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"%3E%3C/script%3E'))</script>
+<script src="{{ STATIC_URL }}js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    $(function() {		
+        $('#doc_contents').height($(window).height() - 160);
+        $('#doc_contents').mCustomScrollbar({
+            theme: 'custom-dark-thick',
+            scrollButtons:{
+              enable:true
+            }
+        });	
+    });
+</script>
+
+{% analytical_body_bottom %}
+</body>
+</html>

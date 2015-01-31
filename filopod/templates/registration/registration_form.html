@@ -1,0 +1,20 @@
+{% extends "base-registration.html" %}
+
+{% block title %}Registration{% endblock %}
+
+{% block header %}
+{% endblock %}
+	
+{% block content %}<h2>Create an Account</h2>
+<div id="panel">
+	<form method="post">{% csrf_token %}
+		<span class="form_label">{{ form.first_name.label_tag }}&nbsp;</span><span class="form_errors">{{ form.first_name.errors|striptags }}</span><br>{{ form.first_name }}<br>
+		<span class="form_label">{{ form.last_name.label_tag }}&nbsp;</span><span class="form_errors">{{ form.last_name.errors|striptags }}</span><br>{{ form.last_name }}<br>
+		<span class="form_label">{{ form.email.label_tag }}&nbsp;</span><span class="form_errors">{{ form.email.errors|striptags }}</span><br>{{ form.email }}<br>
+		<span class="form_label">{{ form.password1.label_tag }}&nbsp;</span><span class="form_errors">{{ form.password1.errors|striptags }}</span><br>{{ form.password1 }}<br>
+		<span class="form_label">{{ form.password2.label_tag }}&nbsp;</span><span class="form_errors">{{ form.password2.errors|striptags }}</span><br>{{ form.password2 }}<br>
+		<div id="tos">{{ form.tos }}&nbsp;<label>I agree to Filopod's <a href="/doc/tos/">Terms of Service</a> and <a href="/doc/privacy/">Privacy Policy</a>.</label>&nbsp;<br><span class="form_errors">{{ form.tos.errors|striptags }}</span></div><br>
+		<input type="submit" value="Register" id="submitbutton" class="btn bt-info">
+	</form>
+</div>
+{% endblock %}

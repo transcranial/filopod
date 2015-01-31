@@ -1,0 +1,20 @@
+{% extends "base-registration.html" %}
+
+{% block title %}Account activated{% endblock %}
+
+{% block header %}
+<meta http-equiv="refresh" content="3; url=/accounts/login/">
+{% endblock %}
+
+{% block content %}
+  <h2>Account activated.</h2>
+  {% load humanize %}
+  {% if account %}
+    <p>Thanks for signing up! Click <a href="/accounts/login/">here</a> to log in if you don't get redirected automatically.</p>
+  {% else %}
+    <p>Sorry, it didn't work. Either your activation link was incorrect, or
+    the activation key for your account has expired; activation keys are
+    only valid for {{ expiration_days|apnumber }} days after
+    registration. Please try again.</p>
+  {% endif %}
+{% endblock %}

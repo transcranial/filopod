@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Filopod - Our Team{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style-about.css" />
+{% endblock %}
+
+{% block body %}
+<div class="about-header container">
+Our Team
+</div>
+<div class="about-main container">
+    <div class="row">
+        <div class="col-md-6 profiles-img"><img class="img-circle" src="{{ STATIC_URL }}images/alvin2.jpg" alt="Alvin" style="height:100px;width:100px;"></div>
+        <div class="col-md-6 profiles-img"><img class="img-circle" src="{{ STATIC_URL }}images/leon2.jpg" alt="Leon" style="height:100px;width:100px;"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 profiles-bio"><h4>Alvin Yu</h4><p>Alvin is a fresh graduate of Harvard Medical School and will be pursuing radiology residency at Mass General Hospital in Boston. He has a background in biomedical engineering and biochemical sciences. He is interested the cross-roads of technology and medicine, and wants to produce products to make people's lives easier and the world a better place.</p></div>
+        <div class="col-md-6 profiles-bio"><h4>Leon Chen</h4><p>Leon is a physician, radiology resident, and full-stack developer. He went to school at the University of Washington, MIT, and Harvard Medical School. He is generally optimistic on the role of technology in improving people's lives. Fascinated by power law distributions and exponential growth laws, he hopes to soon welcome our robot overlords.</p></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
